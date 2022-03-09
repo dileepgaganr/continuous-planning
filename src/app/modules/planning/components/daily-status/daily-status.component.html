@@ -1,0 +1,32 @@
+<form [formGroup]="dailyStatusForm" fxLayout="column" fxLayoutGap="4px" fxLayoutAlign="space-around stretch" (ngSubmit)="saveData()">
+    <div fxLayout="row" fxLayoutGap="15px">
+        <mat-form-field appearance="outline" #formField="matFormField" fxFlex="40">
+            <mat-label>Production Output Qty.</mat-label>
+            <input matInput placeholder="Total Production Output Qty." type="number" formControlName="outputQty">
+        </mat-form-field>
+        <mat-form-field appearance="outline" #formField="matFormField" fxFlex="40">
+            <mat-label>Direct Operators</mat-label>
+            <input matInput placeholder="Total No. of Direct Operators in Sewing" type="number" formControlName="operators">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px">
+        <mat-form-field appearance="outline" #formField="matFormField" fxFlex="40">
+            <mat-label>Direct Helpers</mat-label>
+            <input matInput placeholder="Total No. of Direct Helpers in Sewing" type="number" formControlName="helpers">
+        </mat-form-field>
+        <mat-form-field appearance="outline" #formField="matFormField" fxFlex="40">
+            <mat-label>Working Hours</mat-label>
+            <input matInput placeholder="Avg working Hours" type="number" formControlName="workingHrs">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px">
+        <mat-form-field appearance="outline" #formField="matFormField" fxFlex="40">
+            <mat-label>Packed Qty.</mat-label>
+            <input matInput placeholder="Total Packed Quantity" type="number" formControlName="packedQty">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxFlexAlign="center">
+        <button type="button" mat-raised-button (click)="dailyStatusForm.reset()">Reset</button>
+        <button mat-raised-button color="primary" [disabled]="dailyStatusForm.invalid">Submit</button>
+    </div>
+</form>

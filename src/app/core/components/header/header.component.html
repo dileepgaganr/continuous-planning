@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <div class="cp-title">Continuous Planning</div>
+  <span class="cp-toolbar-spacer"></span>
+  <div
+    class="profile-container"
+    id="userProfile"
+    [matMenuTriggerFor]="profileMenu"
+    fxLayout="row"
+    fxLayoutGap="5px"
+    fxLayoutAlign="center center"
+  >
+    <span class="profile-welcome">Welcome,</span>
+    <span class="profile-user">John Wick</span>
+    <mat-icon>arrow_drop_down</mat-icon>
+  </div>
+  <mat-menu #profileMenu="matMenu">
+    <!-- <div mat-menu-item id='myProfileButton'>
+      <span class="myProfile"></span>
+      <span> My Profile</span>
+    </div> -->
+    <div mat-menu-item type="button" id="logoutButton">
+      <mat-icon>logout</mat-icon>
+      <span class="userLogOut"></span>
+      <span> Logout </span>
+    </div>
+  </mat-menu>
+</mat-toolbar>

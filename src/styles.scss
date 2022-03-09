@@ -1,0 +1,27 @@
+/* Add application styles & imports to this file! */
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$cp-primary: mat.define-palette(mat.$indigo-palette, 200);
+$cp-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$cp-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $cp-primary,
+      accent: $cp-accent,
+    ),
+  )
+);
+
+@include mat.all-component-themes($cp-theme);
+
+html,
+body {
+  height: 100%;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
