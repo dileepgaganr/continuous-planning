@@ -1,15 +1,17 @@
-<app-header></app-header>
-<mat-drawer-container autosize>
-  <mat-drawer #drawer mode="side" [opened]="false">
-    <app-nav></app-nav>
-  </mat-drawer>
-  <div  fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="2px">
-    <div fxFlex="15">Top nav</div>
-    <div fxFlex="5">Bread Crumbs</div>
-    <div class="cp-application-content">
-      <router-outlet></router-outlet>
+<div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="2px">
+  <app-header fxFlex="10"></app-header>
+  <mat-drawer-container autosize>
+    <mat-drawer #drawer mode="side" [opened]="false">
+      <app-nav></app-nav>
+    </mat-drawer>
+    <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="2px">
+      <!-- <div fxFlex="15">Top nav</div>
+      <div fxFlex="5">Bread Crumbs</div> -->
+      <div class="cp-application-content">
+        <router-outlet></router-outlet>
+      </div>
+
     </div>
-      
-  </div>
-</mat-drawer-container>
-<app-footer></app-footer>
+  </mat-drawer-container>
+  <app-footer fxFlex="5"></app-footer>
+</div>

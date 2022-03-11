@@ -1,6 +1,6 @@
 <h1 align="center">Production daily status</h1>
 <div fxLayout="row" fxLayoutAlign="space-around stretch">
-    <div fxLayout="column" fxLayoutAlign="space-around stretch" fxFlex="50" fxLayoutGap="15px">
+    <div fxLayout="column" fxLayoutAlign="space-around stretch" fxFlex="40" fxLayoutGap="15px">
         <div fxLayout="column" fxFlex="30" fxLayoutGap="4px">
             <div fxLayout="row" fxLayoutGap="15px">
                 <div fxLayout="row" fxLayoutGap="2px" fxFlex="40">
@@ -28,10 +28,21 @@
                 <div fxFlex="40">
                     <mat-form-field appearance="outline" fxFill>
                         <mat-label>Order Id</mat-label>
-                        <mat-select>
-                            <mat-option></mat-option>
-                        </mat-select>
-                    </mat-form-field>
+                        <input type="text"
+                               placeholder="Order Id"
+                               aria-label="Order Id"
+                               matInput
+                               [formControl]="myControl"
+                               [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option}}
+                          </mat-option>
+                        </mat-autocomplete>
+                      </mat-form-field>
+
+
+                  
                 </div>
                 <div fxFlex="40">
                     <mat-form-field appearance="outline" fxFill>
@@ -44,11 +55,13 @@
             </div>
 
             <div fxLayout="row" fxLayoutGap="15px">
-                <a href="#">Planning Sheet</a>
+                <a (click)="openPlanningSheet()">Planning Sheet</a>
             </div>
 
         </div>
         <app-daily-status fxFlex></app-daily-status>
     </div>
-    <div fxLayout="column" fxFlex="50">Table</div>
+    <div fxLayout="column" fxFlex="60" fxFill>
+        <app-production-summary fxFill></app-production-summary>
+    </div>
 </div>

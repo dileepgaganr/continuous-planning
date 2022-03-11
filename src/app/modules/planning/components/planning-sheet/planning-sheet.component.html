@@ -1,0 +1,96 @@
+<div fxLayout="column" fxFlexAlign="space-around stretch">
+    <h3 fxFlex="10">Planning Sheet</h3>
+    <form [formGroup]="planningForm" fxLayoutGap="8px" (ngSubmit)="saveData()" fxLayout="column" fxFlexAlign="space-around stretch">
+        <mat-accordion multi fxFlex="75">
+            <mat-expansion-panel expanded>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Planning
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div fxLayout="row" fxLayoutGap="15px">
+                    <mat-form-field appearance="outline" #formField="matFormField" fxFlex="40">
+                        <mat-label>No. of operators</mat-label>
+                        <input matInput placeholder="Planned number of operators" type="number"
+                            formControlName="operators">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" #formField="matFormField" fxFlex="40">
+                        <mat-label>No. of Direct Helpers</mat-label>
+                        <input matInput placeholder="Planned No. of Direct Helpers" type="number"
+                            formControlName="helpers">
+                    </mat-form-field>
+
+                </div>
+                <div fxLayout="row" fxLayoutGap="15px">
+                    <mat-form-field appearance="outline" #formField="matFormField" fxFlex="40">
+                        <mat-label>Working Hours</mat-label>
+                        <input matInput placeholder="Planned working hours" type="number" formControlName="workingHrs">
+                    </mat-form-field>
+
+                </div>
+
+            </mat-expansion-panel>
+
+            <mat-expansion-panel expanded>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Planning Days
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div formArrayName="plannedData">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Output Day</th>
+                                <th>Planned Efficiency</th>
+                                <th>Planned Packed Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody [style.height.vh]="height">
+                            <tr *ngFor="let control of plannedData.controls; let i=index;" [formGroupName]="i">
+                                <td>
+                                    <mat-form-field appearance="outline" #formField="matFormField" [style.width.px]=200
+                                        class="cp-table-control">
+                                        <mat-label>Day</mat-label>
+                                        <input matInput placeholder="Day" type="text" value="Day {{i+1}}" readonly>
+                                    </mat-form-field>
+                                    <!-- <input  placeholder="Day" type="text" formControlName="day" readonly > -->
+
+                                </td>
+                                <td>
+                                    <mat-form-field appearance="outline" #formField="matFormField" [style.width.px]=200
+                                        class="cp-table-control">
+                                        <mat-label>Efficiency</mat-label>
+                                        <input matInput placeholder="Planned Efficiency" type="number"
+                                            formControlName="efficiency">
+                                    </mat-form-field>
+                                    <!-- <input  placeholder="Planned Efficiency" type="number"
+                                formControlName="efficiency" > -->
+                                </td>
+                                <td>
+                                    <mat-form-field appearance="outline" #formField="matFormField" [style.width.px]=200
+                                        class="cp-table-control">
+                                        <mat-label>Packed Quantity</mat-label>
+                                        <input matInput placeholder="Planned packed quantity" type="number"
+                                            formControlName="qty">
+                                    </mat-form-field>
+                                    <!-- <input  placeholder="Planned packed quantity" type="number"
+                                        formControlName="qty" > -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <div fxLayout="row" fxLayoutGap="15px" fxFlexAlign="end" fxFlex="15">
+            <button type="button" mat-raised-button (click)="dialogRef.close()">Cancel</button>
+            <button mat-raised-button color="primary" [disabled]="planningForm.invalid">Submit</button>
+        </div>
+    </form>
+</div>

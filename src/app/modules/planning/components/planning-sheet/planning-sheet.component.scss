@@ -1,0 +1,30 @@
+td {
+    text-align: center;
+    vertical-align: middle;
+    padding-right: 8px;
+  }
+
+table{
+    border-collapse: collapse;
+}
+
+table tbody{
+    display:block;
+    overflow:auto;
+}
+
+table thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+
+table thead {
+    width: calc( 100% - 1em );
+}
+
+:host::ng-deep{
+    .cp-table-control.mat-form-field {
+       font-size: 12px;
+    }
+}
